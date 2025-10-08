@@ -15,274 +15,248 @@
       --muted: #d8eaff;
     }
 
-    * {margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
-    html,body {
+    *{margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
+    html,body{
       height:100%;
       width:100%;
       background:linear-gradient(135deg,var(--bg-dark),#001a3a);
       color:var(--text);
       overflow-x:hidden;
+      scroll-behavior:smooth;
     }
 
-    .circuit-bg {
-      position: absolute;
-      inset: 0;
-      overflow: hidden;
-      z-index: 1;
-    }
-    .line {
-      position: absolute;
-      background: linear-gradient(90deg, transparent, var(--primary), transparent);
-      height: 1px;
-      width: 200px;
-      opacity: 0.3;
-      animation: moveLine 6s linear infinite;
-    }
-    @keyframes moveLine {
-      from {transform: translateX(-200px);}
-      to {transform: translateX(100vw);}
+    canvas#network-bg{
+      position:fixed;
+      inset:0;
+      z-index:0;
+      pointer-events:none;
+      background:transparent;
     }
 
-    .neon-blur {
-      position: fixed;
-      width: 500px;
-      height: 500px;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(0,100,255,0.36), transparent 70%);
-      filter: blur(140px);
-      z-index: 0;
-      pointer-events: none;
-      animation: moveBlur 20s ease-in-out infinite alternate;
+    .neon-blur{
+      position:fixed;
+      width:500px;
+      height:500px;
+      border-radius:50%;
+      background:radial-gradient(circle,rgba(0,100,255,0.36),transparent 70%);
+      filter:blur(140px);
+      z-index:0;
+      pointer-events:none;
+      animation:moveBlur 20s ease-in-out infinite alternate;
     }
-    @keyframes moveBlur {
+    @keyframes moveBlur{
       0%{top:10%;left:10%}
       50%{top:45%;left:68%}
       100%{top:18%;left:34%}
     }
 
-    #welcome {
-      position: fixed;
-      inset: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: linear-gradient(135deg,#001a3a,#0a0f1f);
-      color: var(--text);
-      font-size: 3rem;
-      font-weight: 700;
-      z-index: 15;
-      animation: fadeOutWelcome 3s ease forwards;
+    #welcome{
+      position:fixed;
+      inset:0;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(135deg,#001a3a,#0a0f1f);
+      color:var(--text);
+      font-size:3rem;
+      font-weight:700;
+      z-index:15;
+      animation:fadeOutWelcome 3s ease forwards;
     }
-    @keyframes fadeOutWelcome {
+    @keyframes fadeOutWelcome{
       0%,70%{opacity:1}
       100%{opacity:0;visibility:hidden}
     }
 
-    .header-profil {
-      position: fixed;
-      top: 1rem;
-      left: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      z-index: 6;
-      opacity: 0;
-      animation: fadeInHeader 2s ease 3s forwards;
+    .header-profil{
+      position:fixed;
+      top:1rem;
+      left:1rem;
+      display:flex;
+      align-items:center;
+      gap:1rem;
+      z-index:6;
+      opacity:0;
+      animation:fadeInHeader 2s ease 3s forwards;
     }
-    .header-profil img {
-      width: 60px;
-      height: 60px;
-      border-radius: 50%;
-      border: 2px solid var(--primary);
-      object-fit: cover;
-      box-shadow: 0 0 12px rgba(0,140,255,.45);
+    .header-profil img{
+      width:60px;
+      height:60px;
+      border-radius:50%;
+      border:2px solid var(--primary);
+      object-fit:cover;
+      box-shadow:0 0 12px rgba(0,140,255,.45);
     }
-    .header-profil h1 {
-      color: var(--text);
-      font-size: 1.25rem;
-      text-shadow: 0 0 8px rgba(255,255,255,.12);
-      font-weight: 600;
+    .header-profil h1{
+      color:var(--text);
+      font-size:1.25rem;
+      text-shadow:0 0 8px rgba(255,255,255,.12);
+      font-weight:600;
     }
-    @keyframes fadeInHeader {
+    @keyframes fadeInHeader{
       from{opacity:0;transform:translateY(-15px)}
       to{opacity:1;transform:none}
     }
 
-    #beranda {
-      position: absolute;
-      inset: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      z-index: 5;
-      opacity: 0;
-      animation: fadeInBeranda 1.4s ease 3.4s forwards;
-      text-align: center;
-      transition: opacity .4s ease;
+    #beranda{
+      position:absolute;
+      inset:0;
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      z-index:5;
+      opacity:0;
+      animation:fadeInBeranda 1.4s ease 3.4s forwards;
+      text-align:center;
+      transition:opacity .5s ease;
     }
-    @keyframes fadeInBeranda {
-      from{opacity:0;transform:translateY(20px)}
-      to{opacity:1;transform:none}
-    }
-    #beranda h1 {
-      font-size: 2.6rem;
-      color: var(--text);
-      text-shadow: 0 0 20px rgba(0,140,255,.6);
-      animation: fadeUp 1.2s ease-out;
-    }
-    @keyframes fadeUp {
+    @keyframes fadeInBeranda{
       from{opacity:0;transform:translateY(20px)}
       to{opacity:1;transform:none}
     }
 
-    #beranda h2 {
-      font-size: 1.05rem;
-      color: var(--muted);
-      margin: .5rem 0 1.2rem;
-      border-right: 2px solid var(--accent);
-      white-space: nowrap;
-      overflow: hidden;
-      display: inline-block;
-      max-width: 90vw;
-      animation: typing 4s steps(40,end) 1s forwards, blink .75s step-end infinite;
-    }
-    #beranda h2.finished {
-      border-right: none;
-    }
-    @keyframes typing { from {width: 0} to {width: 34ch} }
-    @keyframes blink { 50%{border-color:transparent} }
-
-    .cta {
-      background: linear-gradient(135deg,var(--accent),var(--primary));
-      border: none;
-      border-radius: 30px;
-      padding: .8rem 1.4rem;
-      color: #fff;
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 8px 20px rgba(0,80,255,.15);
-      transition: transform .22s,box-shadow .22s;
-      z-index: 6;
-    }
-    .cta:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(0,80,255,.22);
+    #beranda h1{
+      font-size:2.6rem;
+      text-shadow:0 0 20px rgba(0,140,255,.6);
+      margin-bottom:0.5rem;
     }
 
-    #proyek {
-      position: fixed;
-      inset: 0;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-      background: linear-gradient(180deg, rgba(0,20,50,0.85), rgba(0,10,30,0.9));
-      padding-top: 8rem;
-      z-index: 5;
-      opacity: 0;
-      transition: opacity .5s ease;
-      overflow-y: auto;
+    #beranda h2{
+      font-size:1.05rem;
+      color:var(--muted);
+      margin-bottom:1.2rem;
+      border-right:2px solid var(--accent);
+      white-space:nowrap;
+      overflow:hidden;
+      display:inline-block;
+      max-width:90vw;
+      animation:typing 4s steps(40,end) 1s forwards, blink .75s step-end infinite;
     }
-    #proyek.visible {display:flex;opacity:1}
-    #proyek h2 {
-      font-size: 2rem;
-      color: var(--text);
-      margin-bottom: 1.5rem;
-      text-shadow: 0 0 14px rgba(150,200,255,.6);
-    }
+    #beranda h2.finished{border-right:none;}
+    @keyframes typing{from{width:0}to{width:34ch}}
+    @keyframes blink{50%{border-color:transparent}}
 
-    .menu-list {
-      width: 90%;
-      max-width: 680px;
-      display: grid;
-      gap: 1rem;
-      margin-bottom: 1.5rem;
-    }
-    .menu-item {
-      background: var(--panel-bg);
-      border: 1px solid rgba(100,160,255,.26);
-      border-radius: 14px;
-      padding: 1.05rem 1.2rem;
-      text-align: left;
-      font-size: 1.05rem;
-      color: var(--text);
-      font-weight: 600;
-      cursor: pointer;
-      box-shadow: 0 6px 20px rgba(0,0,0,.45);
-      transition: transform .22s,box-shadow .22s,background .22s;
-    }
-    .menu-item:hover {
-      transform: translateY(-6px);
-      background: rgba(0,120,255,0.1);
-      box-shadow: 0 18px 40px rgba(0,120,255,.2);
-    }
-
-    .detail {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      padding: 6rem 1.5rem 2rem;
-      text-align: center;
-      height: 100%;
-      overflow-y: auto;
-      z-index: 6;
-      opacity: 0;
-      transition: opacity .45s ease;
-    }
-    .detail.visible {display:flex;opacity:1}
-
-    .detail h3 {
-      font-size: 1.8rem;
-      color: var(--text);
-      margin-bottom: 1rem;
-      text-shadow: 0 0 12px rgba(150,200,255,.25);
-    }
-    .detail p {
-      max-width: 760px;
-      color: #e6f2ff;
-      line-height: 1.7;
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-    }
-
-    .skills-list {
-      text-align: left;
-      margin: 0.8rem 0 1.2rem;
-      padding-left: 1.5rem;
-      list-style: disc;
-      color: #e6f2ff;
-      line-height: 1.8;
-      max-width: 760px;
-      width: 100%;
-    }
-    .skills-list li { margin-bottom: 0.4rem; }
-
-    button.backMenu, #backBtn {
-      margin:1.6rem 0;
-      background:transparent;
-      border:1px solid #ffffff;
-      color:#ffffff;
-      padding:.62rem 1.1rem;
-      border-radius:20px;
-      cursor:pointer;
+    .cta{
+      background:linear-gradient(135deg,var(--accent),var(--primary));
+      border:none;
+      border-radius:30px;
+      padding:.8rem 1.4rem;
+      color:#fff;
       font-weight:600;
-      transition:transform .18s,background .18s,box-shadow .18s;
+      cursor:pointer;
+      box-shadow:0 8px 20px rgba(0,80,255,.15);
+      transition:transform .22s,box-shadow .22s;
+      z-index:6;
     }
-    button.backMenu:hover, #backBtn:hover {
-      background:#ffffff;
-      color:#001a3a;
+    .cta:hover{
       transform:translateY(-3px);
-      box-shadow:0 18px 40px rgba(255,255,255,.25);
+      box-shadow:0 16px 40px rgba(0,80,255,.22);
     }
 
-    @media (max-width:600px) {
-      #beranda h1 {font-size: 2rem;}
-      #beranda h2 {font-size: .9rem;}
+    #proyek{
+      position:fixed;
+      inset:0;
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      justify-content:flex-start;
+      background:transparent;
+      padding-top:6rem;
+      z-index:5;
+      opacity:0;
+      transition:opacity .5s ease;
+      overflow-y:auto;
+    }
+    #proyek.visible{display:flex;opacity:1}
+
+    #proyek h2{
+      font-size:1.9rem;
+      text-shadow:0 0 12px rgba(100,200,255,.3);
+      margin-bottom:1.5rem;
+    }
+
+    .menu-list{
+      width:90%;
+      max-width:680px;
+      display:grid;
+      gap:1rem;
+      margin-bottom:1.5rem;
+    }
+    .menu-item{
+      background:var(--panel-bg);
+      border:1px solid rgba(100,160,255,.26);
+      border-radius:14px;
+      padding:1.05rem 1.2rem;
+      font-size:1.05rem;
+      color:var(--text);
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 20px rgba(0,0,0,.45);
+      transition:transform .22s,box-shadow .22s,background .22s;
+    }
+    .menu-item:hover{
+      transform:translateY(-6px);
+      background:rgba(0,120,255,0.1);
+      box-shadow:0 18px 40px rgba(0,120,255,.2);
+    }
+
+    .detail{
+      display:none;
+      flex-direction:column;
+      align-items:center;
+      padding:6rem 1.5rem 2rem;
+      text-align:center;
+      height:100%;
+      overflow-y:auto;
+      opacity:0;
+      transition:opacity .45s ease;
+    }
+    .detail.visible{display:flex;opacity:1}
+
+    .detail h3{
+      font-size:1.8rem;
+      margin-bottom:1rem;
+      text-shadow:0 0 12px rgba(150,200,255,.25);
+    }
+    .detail p{
+      max-width:760px;
+      color:#e6f2ff;
+      line-height:1.7;
+      font-size:1rem;
+      margin-bottom:1.2rem;
+    }
+    .skills-list{
+      text-align:left;
+      margin:.8rem 0 1.2rem;
+      padding-left:1.5rem;
+      list-style:disc;
+      color:#e6f2ff;
+      line-height:1.8;
+      max-width:760px;
+      width:100%;
+    }
+
+    .back-arrow{
+      font-size:1rem;
+      color:#fff;
+      background:transparent;
+      border:1px solid rgba(255,255,255,.4);
+      border-radius:20px;
+      padding:.5rem 1rem;
+      cursor:pointer;
+      margin-top:1.5rem;
+      transition:background .2s,transform .2s;
+      z-index:10;
+    }
+    .back-arrow:hover{
+      background:rgba(255,255,255,.1);
+      transform:translateY(-2px);
     }
   </style>
 </head>
 <body>
+  <canvas id="network-bg"></canvas>
   <div id="welcome">Welcome</div>
   <div class="neon-blur"></div>
 
@@ -292,7 +266,6 @@
   </div>
 
   <section id="beranda">
-    <div class="circuit-bg" id="circuit"></div>
     <h1>HAI, SAYA BAGAS SAPUTRA</h1>
     <h2>Pelajar Teknik Komputer dan Jaringan</h2>
     <button class="cta" id="lihatProyekBtn">Tentang Saya</button>
@@ -300,53 +273,70 @@
 
   <section id="proyek">
     <h2>Tentang Saya</h2>
-    <div class="menu-list" id="menuList">
+    <div class="menu-list">
       <div class="menu-item" data-target="karier">Pengalaman di TKJ</div>
       <div class="menu-item" data-target="keahlian">Keahlian & Pengalaman</div>
       <div class="menu-item" data-target="visi">Visi dan Misi</div>
       <div class="menu-item" data-target="prinsip">Prinsip Hidup</div>
     </div>
-    <button id="backBtn">Kembali</button>
+    <button class="back-arrow" id="backBtn">Kembali</button>
   </section>
 
+  <!-- ===== PENGALAMAN ===== -->
   <section class="detail" id="karier">
     <h3>Pengalaman di TKJ</h3>
-    <p>Saya adalah pelajar jurusan Teknik Komputer dan Jaringan (TKJ) yang memiliki ketertarikan besar terhadap dunia teknologi, jaringan, dan sistem komputer. Selama masa belajar, saya telah mempelajari berbagai aspek penting seperti perakitan komputer, instalasi sistem operasi, konfigurasi jaringan LAN dan WLAN, serta pengelolaan server dasar.</p>
-    <p>Saya juga pernah mengikuti kegiatan praktik kerja lapangan (PKL) di instansi IT support, di mana saya membantu instalasi jaringan kantor, maintenance komputer, dan troubleshooting koneksi internet. Dari pengalaman tersebut saya belajar bekerja secara profesional, disiplin, dan memahami pentingnya kerja sama tim.</p>
-    <button class="backMenu">Kembali</button>
+    <p>Saya adalah pelajar jurusan Teknik Komputer dan Jaringan (TKJ) yang memiliki ketertarikan besar terhadap dunia teknologi, sistem komputer, dan jaringan internet. Sejak awal belajar di bidang ini, saya aktif mempraktikkan setiap pelajaran, dari perakitan komputer hingga konfigurasi jaringan lokal (LAN).</p>
+    <p>Saya juga pernah mengikuti <b>Praktik Kerja Lapangan (PKL)</b> di bidang IT Support di sebuah perusahaan yang bergerak di bidang teknologi. Di sana, saya bertanggung jawab untuk membantu maintenance jaringan, memperbaiki komputer bermasalah, serta membantu instalasi sistem operasi dan software pendukung.</p>
+    <p>Selama masa belajar, saya sering terlibat dalam beberapa proyek kecil seperti:</p>
+    <ul class="skills-list">
+      <li>Membangun jaringan LAN antar kelas menggunakan topologi star.</li>
+      <li>Membuat simulasi jaringan menggunakan Cisco Packet Tracer.</li>
+      <li>Menginstal dan mengonfigurasi Mikrotik untuk sistem hotspot sekolah.</li>
+      <li>Membantu guru dalam troubleshooting komputer lab sekolah.</li>
+    </ul>
+    <p>Pengalaman ini membuat saya memahami pentingnya ketelitian, komunikasi, dan kerja sama tim dalam dunia teknologi jaringan.</p>
+    <button class="back-arrow backMenu">Kembali</button>
   </section>
 
+  <!-- ===== KEAHLIAN ===== -->
   <section class="detail" id="keahlian">
     <h3>Keahlian & Pengalaman</h3>
-    <p>Saya memiliki kemampuan dalam bidang:</p>
     <ul class="skills-list">
-      <li>Perakitan dan perawatan komputer (hardware & software)</li>
-      <li>Instalasi sistem operasi (Windows, Linux, Ubuntu Server)</li>
-      <li>Konfigurasi jaringan dasar menggunakan switch, router, dan Mikrotik</li>
-      <li>Pembuatan serta manajemen kabel jaringan (straight & cross)</li>
-      <li>Penggunaan aplikasi jaringan seperti Winbox dan Cisco Packet Tracer</li>
-      <li>Troubleshooting perangkat jaringan dan PC</li>
-      <li>Dasar pemrograman web (HTML, CSS, JavaScript)</li>
+      <li>Perakitan, perawatan, dan upgrade komputer.</li>
+      <li>Instalasi dan konfigurasi sistem operasi Windows & Linux.</li>
+      <li>Konfigurasi jaringan dasar (IP Address, DHCP, DNS, Router, Mikrotik).</li>
+      <li>Pembuatan dan crimping kabel jaringan (Straight & Cross).</li>
+      <li>Pemanfaatan aplikasi jaringan seperti Winbox, Wireshark, dan Cisco Packet Tracer.</li>
+      <li>Troubleshooting perangkat jaringan seperti switch, router, dan access point.</li>
+      <li>Pemrograman dasar web menggunakan HTML, CSS, dan JavaScript.</li>
+      <li>Pengelolaan server lokal sederhana dan file sharing melalui LAN.</li>
     </ul>
-    <button class="backMenu">Kembali</button>
+    <p>Selain keterampilan teknis, saya juga mengembangkan soft skill seperti komunikasi efektif, problem solving, dan manajemen waktu. Saya percaya bahwa kombinasi antara kemampuan teknis dan sikap profesional akan menjadi bekal penting di dunia kerja IT.</p>
+    <button class="back-arrow backMenu">Kembali</button>
   </section>
 
+  <!-- ===== VISI MISI ===== -->
   <section class="detail" id="visi">
     <h3>Visi dan Misi</h3>
-    <p><b>Visi:</b> Menjadi profesional di bidang jaringan komputer yang mampu berkontribusi terhadap kemajuan digital di Indonesia.</p>
+    <p><b>Visi:</b> Menjadi profesional di bidang jaringan komputer yang mampu berkontribusi terhadap kemajuan digital dan keamanan sistem di Indonesia.</p>
     <p><b>Misi:</b></p>
-    <p>• Terus memperdalam pengetahuan tentang jaringan komputer dan keamanan siber.<br>
-       • Mengasah kemampuan teknis melalui pengalaman nyata dan proyek praktik.<br>
-       • Menjadi pribadi disiplin, bertanggung jawab, dan siap bekerja dalam tim.<br>
-       • Membangun koneksi serta kolaborasi dengan orang-orang yang memiliki visi serupa.</p>
-    <button class="backMenu">Kembali</button>
+    <ul class="skills-list">
+      <li>Terus memperdalam pengetahuan di bidang jaringan, server, dan keamanan siber.</li>
+      <li>Meningkatkan kemampuan praktis melalui proyek dan pengalaman langsung.</li>
+      <li>Menjadi individu yang disiplin, tangguh, dan memiliki rasa tanggung jawab tinggi.</li>
+      <li>Membangun jejaring kerja sama dengan sesama pelajar, teknisi, dan profesional IT.</li>
+      <li>Mengikuti perkembangan teknologi terkini agar tetap relevan dengan dunia kerja modern.</li>
+    </ul>
+    <button class="back-arrow backMenu">Kembali</button>
   </section>
 
+  <!-- ===== PRINSIP ===== -->
   <section class="detail" id="prinsip">
     <h3>Prinsip Hidup</h3>
-    <p>Kesuksesan tidak datang secara instan — semua butuh proses, waktu, dan usaha yang konsisten. Saya percaya setiap kesalahan adalah bagian dari proses belajar untuk menjadi lebih baik.</p>
-    <p>Prinsip saya: <i>“Belajar, beradaptasi, dan berkembang.”</i> Karena di dunia teknologi yang terus berubah, kita harus mau belajar hal baru setiap hari agar tidak tertinggal.</p>
-    <button class="backMenu">Kembali</button>
+    <p>Kesuksesan tidak datang secara instan — semua butuh proses, waktu, dan usaha yang konsisten. Saya percaya bahwa setiap tantangan adalah kesempatan untuk berkembang dan belajar hal baru.</p>
+    <p><i>“Belajar, beradaptasi, dan berkembang setiap hari adalah kunci untuk masa depan yang lebih baik.”</i></p>
+    <p>Bagi saya, teknologi bukan sekadar alat, melainkan jembatan untuk menciptakan solusi dan mempermudah kehidupan manusia. Karena itu, saya selalu berusaha menggunakan kemampuan saya di bidang IT untuk hal yang bermanfaat bagi orang lain.</p>
+    <button class="back-arrow backMenu">Kembali</button>
   </section>
 
   <script>
@@ -356,22 +346,21 @@
     const lihat=document.getElementById('lihatProyekBtn');
     const back=document.getElementById('backBtn');
     const menuItems=document.querySelectorAll('.menu-item');
-    const details=document.querySelectorAll('.detail');
     const backMenus=document.querySelectorAll('.backMenu');
+    const typingText=beranda.querySelector('h2');
 
-    welcome.addEventListener('animationend',()=>{welcome.style.display='none';welcome.remove();});
+    welcome.addEventListener('animationend',()=>welcome.remove());
+    typingText.addEventListener('animationend',e=>{
+      if(e.animationName==='typing')typingText.classList.add('finished');
+    });
 
-    let locked=false;
     lihat.addEventListener('click',()=>{
-      if(locked)return;
-      locked=true;
       beranda.style.opacity='0';
       setTimeout(()=>{
         beranda.style.display='none';
         proyek.style.display='flex';
-        setTimeout(()=>proyek.classList.add('visible'),100);
-        locked=false;
-      },450);
+        setTimeout(()=>proyek.classList.add('visible'),50);
+      },400);
     });
 
     back.addEventListener('click',()=>{
@@ -379,7 +368,7 @@
       setTimeout(()=>{
         proyek.style.display='none';
         beranda.style.display='flex';
-        setTimeout(()=>beranda.style.opacity='1',80);
+        setTimeout(()=>beranda.style.opacity='1',50);
       },300);
     });
 
@@ -391,38 +380,70 @@
         const target=document.getElementById(id);
         target.style.display='flex';
         target.scrollTop=0;
-        setTimeout(()=>target.classList.add('visible'),100);
+        setTimeout(()=>target.classList.add('visible'),50);
       },300);
     }
 
-    backMenus.forEach(btn=>{
+    backMenus.forEach(btn=>
       btn.addEventListener('click',()=>{
-        const parent=btn.parentElement;
+        const parent=btn.closest('.detail');
         parent.classList.remove('visible');
         setTimeout(()=>{
           parent.style.display='none';
           proyek.style.display='flex';
-          setTimeout(()=>proyek.classList.add('visible'),100);
+          setTimeout(()=>proyek.classList.add('visible'),50);
         },250);
-      });
-    });
+      })
+    );
 
-    const circuit=document.getElementById('circuit');
-    for(let i=0;i<20;i++){
-      const line=document.createElement('div');
-      line.className='line';
-      line.style.top=Math.random()*100+'%';
-      line.style.animationDelay=(Math.random()*5)+'s';
-      line.style.opacity=0.15+Math.random()*0.5;
-      circuit.appendChild(line);
-    }
-
-    const typingText=beranda.querySelector('h2');
-    typingText.addEventListener('animationend',(e)=>{
-      if(e.animationName==='typing'){
-        typingText.classList.add('finished');
+    // Background network
+    const canvas=document.getElementById('network-bg');
+    const ctx=canvas.getContext('2d');
+    let w,h,points=[];
+    function resize(){
+      w=canvas.width=innerWidth;
+      h=canvas.height=innerHeight;
+      points=[];
+      for(let i=0;i<60;i++){
+        points.push({
+          x:Math.random()*w,
+          y:Math.random()*h,
+          vx:(Math.random()-.5)*0.6,
+          vy:(Math.random()-.5)*0.6
+        });
       }
-    });
+    }
+    window.addEventListener('resize',resize);
+    resize();
+
+    function animate(){
+      ctx.clearRect(0,0,w,h);
+      for(let p of points){
+        p.x+=p.vx; p.y+=p.vy;
+        if(p.x<0||p.x>w)p.vx*=-1;
+        if(p.y<0||p.y>h)p.vy*=-1;
+        ctx.beginPath();
+        ctx.arc(p.x,p.y,1.5,0,Math.PI*2);
+        ctx.fillStyle='rgba(100,180,255,0.8)';
+        ctx.fill();
+      }
+      for(let i=0;i<points.length;i++){
+        for(let j=i+1;j<points.length;j++){
+          const dx=points[i].x-points[j].x;
+          const dy=points[i].y-points[j].y;
+          const dist=Math.sqrt(dx*dx+dy*dy);
+          if(dist<120){
+            ctx.beginPath();
+            ctx.moveTo(points[i].x,points[i].y);
+            ctx.lineTo(points[j].x,points[j].y);
+            ctx.strokeStyle=`rgba(100,180,255,${1-dist/120})`;
+            ctx.stroke();
+          }
+        }
+      }
+      requestAnimationFrame(animate);
+    }
+    animate();
   </script>
 </body>
 </html>
