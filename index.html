@@ -7,19 +7,19 @@
   <title>Portofolio Bagas Saputra</title>
   <style>
     :root {
-      --primary: #bb86fc;
-      --accent: #b266ff;
-      --bg-dark: #0d0d0d;
+      --primary: #64b5ff;
+      --accent: #2979ff;
+      --bg-dark: #0a0f1f;
       --panel-bg: rgba(255,255,255,0.06);
       --text: #ffffff;
-      --muted: #e9defa;
+      --muted: #d8eaff;
     }
 
     * {margin:0;padding:0;box-sizing:border-box;font-family:"Poppins",sans-serif}
     html,body {
       height:100%;
       width:100%;
-      background:linear-gradient(135deg,var(--bg-dark),#2b004f);
+      background:linear-gradient(135deg,var(--bg-dark),#001a3a);
       color:var(--text);
       overflow-x:hidden;
     }
@@ -48,7 +48,7 @@
       width: 500px;
       height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(150,0,255,0.36), transparent 70%);
+      background: radial-gradient(circle, rgba(0,100,255,0.36), transparent 70%);
       filter: blur(140px);
       z-index: 0;
       pointer-events: none;
@@ -66,7 +66,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      background: linear-gradient(135deg,#2b004f,#0d0d0d);
+      background: linear-gradient(135deg,#001a3a,#0a0f1f);
       color: var(--text);
       font-size: 3rem;
       font-weight: 700;
@@ -95,7 +95,7 @@
       border-radius: 50%;
       border: 2px solid var(--primary);
       object-fit: cover;
-      box-shadow: 0 0 12px rgba(180,0,255,.45);
+      box-shadow: 0 0 12px rgba(0,140,255,.45);
     }
     .header-profil h1 {
       color: var(--text);
@@ -128,7 +128,7 @@
     #beranda h1 {
       font-size: 2.6rem;
       color: var(--text);
-      text-shadow: 0 0 20px rgba(180,0,255,.6);
+      text-shadow: 0 0 20px rgba(0,140,255,.6);
       animation: fadeUp 1.2s ease-out;
     }
     @keyframes fadeUp {
@@ -136,7 +136,6 @@
       to{opacity:1;transform:none}
     }
 
-    /* typing text */
     #beranda h2 {
       font-size: 1.05rem;
       color: var(--muted);
@@ -151,13 +150,8 @@
     #beranda h2.finished {
       border-right: none;
     }
-    @keyframes typing {
-      from {width: 0}
-      to {width: 34ch}
-    }
-    @keyframes blink {
-      50%{border-color:transparent}
-    }
+    @keyframes typing { from {width: 0} to {width: 34ch} }
+    @keyframes blink { 50%{border-color:transparent} }
 
     .cta {
       background: linear-gradient(135deg,var(--accent),var(--primary));
@@ -167,13 +161,13 @@
       color: #fff;
       font-weight: 600;
       cursor: pointer;
-      box-shadow: 0 8px 20px rgba(178,80,255,.15);
+      box-shadow: 0 8px 20px rgba(0,80,255,.15);
       transition: transform .22s,box-shadow .22s;
       z-index: 6;
     }
     .cta:hover {
       transform: translateY(-3px);
-      box-shadow: 0 16px 40px rgba(178,80,255,.22);
+      box-shadow: 0 16px 40px rgba(0,80,255,.22);
     }
 
     #proyek {
@@ -183,7 +177,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      background: linear-gradient(180deg, rgba(26,0,48,0.72), rgba(15,0,35,0.72));
+      background: linear-gradient(180deg, rgba(0,20,50,0.85), rgba(0,10,30,0.9));
       padding-top: 8rem;
       z-index: 5;
       opacity: 0;
@@ -195,7 +189,7 @@
       font-size: 2rem;
       color: var(--text);
       margin-bottom: 1.5rem;
-      text-shadow: 0 0 14px rgba(200,150,255,.6);
+      text-shadow: 0 0 14px rgba(150,200,255,.6);
     }
 
     .menu-list {
@@ -207,7 +201,7 @@
     }
     .menu-item {
       background: var(--panel-bg);
-      border: 1px solid rgba(180,0,255,.26);
+      border: 1px solid rgba(100,160,255,.26);
       border-radius: 14px;
       padding: 1.05rem 1.2rem;
       text-align: left;
@@ -220,8 +214,8 @@
     }
     .menu-item:hover {
       transform: translateY(-6px);
-      background: rgba(180,0,255,0.08);
-      box-shadow: 0 18px 40px rgba(180,0,255,.14);
+      background: rgba(0,120,255,0.1);
+      box-shadow: 0 18px 40px rgba(0,120,255,.2);
     }
 
     .detail {
@@ -242,36 +236,33 @@
       font-size: 1.8rem;
       color: var(--text);
       margin-bottom: 1rem;
-      text-shadow: 0 0 12px rgba(180,0,255,.25);
+      text-shadow: 0 0 12px rgba(150,200,255,.25);
     }
     .detail p {
       max-width: 760px;
-      color: #f5eaff;
+      color: #e6f2ff;
       line-height: 1.7;
       font-size: 1rem;
       margin-bottom: 1.2rem;
     }
 
-    /* NEW: skills list styling (rata kiri, rapi) */
     .skills-list {
       text-align: left;
       margin: 0.8rem 0 1.2rem;
       padding-left: 1.5rem;
       list-style: disc;
-      color: #f5eaff;
+      color: #e6f2ff;
       line-height: 1.8;
       max-width: 760px;
       width: 100%;
     }
-    .skills-list li {
-      margin-bottom: 0.4rem;
-    }
+    .skills-list li { margin-bottom: 0.4rem; }
 
     button.backMenu, #backBtn {
       margin:1.6rem 0;
-      background:rgba(255,255,255,0.04);
-      border:1px solid rgba(187,134,252,0.9);
-      color:var(--text);
+      background:transparent;
+      border:1px solid #ffffff;
+      color:#ffffff;
       padding:.62rem 1.1rem;
       border-radius:20px;
       cursor:pointer;
@@ -279,10 +270,10 @@
       transition:transform .18s,background .18s,box-shadow .18s;
     }
     button.backMenu:hover, #backBtn:hover {
-      background:var(--accent);
-      color:#0b0b10;
+      background:#ffffff;
+      color:#001a3a;
       transform:translateY(-3px);
-      box-shadow:0 18px 40px rgba(178,80,255,.18);
+      box-shadow:0 18px 40px rgba(255,255,255,.25);
     }
 
     @media (max-width:600px) {
@@ -293,11 +284,10 @@
 </head>
 <body>
   <div id="welcome">Welcome</div>
-
   <div class="neon-blur"></div>
 
   <div class="header-profil">
-    <img src="icon.jpeg".jpeg" alt="Foto profil Bagas Saputra">
+    <img src="icon.jpeg" alt="Foto profil Bagas Saputra">
     <h1>Bagas Saputra</h1>
   </div>
 
@@ -322,84 +312,75 @@
   <section class="detail" id="karier">
     <h3>Pengalaman di TKJ</h3>
     <p>Saya adalah pelajar jurusan Teknik Komputer dan Jaringan (TKJ) yang memiliki ketertarikan besar terhadap dunia teknologi, jaringan, dan sistem komputer. Selama masa belajar, saya telah mempelajari berbagai aspek penting seperti perakitan komputer, instalasi sistem operasi, konfigurasi jaringan LAN dan WLAN, serta pengelolaan server dasar.</p>
-    <p>Saya juga pernah mengikuti kegiatan praktik kerja lapangan (PKL) di sebuah instansi yang bergerak di bidang IT support, di mana saya berperan dalam membantu instalasi jaringan kantor, maintenance komputer, dan troubleshooting koneksi internet. Dari pengalaman itu saya belajar untuk bekerja secara profesional, disiplin, dan memahami pentingnya kerja tim di dunia kerja.</p>
-    <p>Selain itu, saya aktif mengikuti proyek kecil di sekolah seperti membuat jaringan untuk lab komputer, instalasi router Mikrotik, dan konfigurasi jaringan berbasis topologi star dan mesh. Semua itu memberi saya dasar yang kuat untuk memahami bagaimana sistem jaringan bekerja secara nyata.</p>
+    <p>Saya juga pernah mengikuti kegiatan praktik kerja lapangan (PKL) di instansi IT support, di mana saya membantu instalasi jaringan kantor, maintenance komputer, dan troubleshooting koneksi internet. Dari pengalaman tersebut saya belajar bekerja secara profesional, disiplin, dan memahami pentingnya kerja sama tim.</p>
     <button class="backMenu">Kembali</button>
   </section>
 
   <section class="detail" id="keahlian">
     <h3>Keahlian & Pengalaman</h3>
     <p>Saya memiliki kemampuan dalam bidang:</p>
-
-    <!-- REPLACED: bullet points converted to proper UL list (rata kiri) -->
     <ul class="skills-list">
       <li>Perakitan dan perawatan komputer (hardware & software)</li>
-      <li>Instalasi sistem operasi (Windows, Linux, dan Ubuntu Server)</li>
+      <li>Instalasi sistem operasi (Windows, Linux, Ubuntu Server)</li>
       <li>Konfigurasi jaringan dasar menggunakan switch, router, dan Mikrotik</li>
-      <li>Pembuatan dan manajemen kabel jaringan (straight & cross)</li>
-      <li>Penggunaan aplikasi pendukung jaringan seperti Winbox dan Cisco Packet Tracer</li>
+      <li>Pembuatan serta manajemen kabel jaringan (straight & cross)</li>
+      <li>Penggunaan aplikasi jaringan seperti Winbox dan Cisco Packet Tracer</li>
       <li>Troubleshooting perangkat jaringan dan PC</li>
-      <li>Dasar pemrograman web (HTML, CSS, dan sedikit JavaScript)</li>
+      <li>Dasar pemrograman web (HTML, CSS, JavaScript)</li>
     </ul>
-
-    <p>Saya juga terbiasa bekerja dengan pendekatan praktis dan problem-solving. Saat menghadapi masalah, saya terbiasa menganalisis penyebabnya terlebih dahulu sebelum melakukan perbaikan, sehingga pekerjaan lebih efektif dan efisien.</p>
     <button class="backMenu">Kembali</button>
   </section>
 
   <section class="detail" id="visi">
     <h3>Visi dan Misi</h3>
-    <p><b>Visi:</b> Menjadi seorang profesional di bidang teknologi jaringan komputer yang mampu berkontribusi terhadap kemajuan digital di Indonesia.</p>
+    <p><b>Visi:</b> Menjadi profesional di bidang jaringan komputer yang mampu berkontribusi terhadap kemajuan digital di Indonesia.</p>
     <p><b>Misi:</b></p>
-    <p>• Terus belajar dan memperdalam pengetahuan tentang jaringan komputer dan keamanan siber.<br>
-       • Mengasah kemampuan teknis melalui pengalaman nyata dan proyek-proyek praktik.<br>
-       • Menjadi pribadi yang disiplin, bertanggung jawab, dan siap bekerja dalam tim.<br>
-       • Membangun koneksi dan kolaborasi dengan orang-orang yang memiliki visi serupa di bidang IT.</p>
+    <p>• Terus memperdalam pengetahuan tentang jaringan komputer dan keamanan siber.<br>
+       • Mengasah kemampuan teknis melalui pengalaman nyata dan proyek praktik.<br>
+       • Menjadi pribadi disiplin, bertanggung jawab, dan siap bekerja dalam tim.<br>
+       • Membangun koneksi serta kolaborasi dengan orang-orang yang memiliki visi serupa.</p>
     <button class="backMenu">Kembali</button>
   </section>
 
   <section class="detail" id="prinsip">
     <h3>Prinsip Hidup</h3>
-    <p>Bagi saya, kesuksesan tidak datang secara instan. Semua butuh proses, waktu, dan usaha yang konsisten. Saya percaya bahwa setiap kesalahan adalah bagian dari proses belajar untuk menjadi lebih baik.</p>
-    <p>Saya selalu berpegang pada prinsip: <i>“Belajar, beradaptasi, dan berkembang.”</i> Karena di dunia teknologi yang terus berubah, kita harus mau belajar hal baru setiap hari agar tidak tertinggal.</p>
-    <p>Selain itu, saya juga percaya pentingnya menjaga sikap dan kejujuran dalam setiap pekerjaan. Keahlian memang penting, tapi karakter dan tanggung jawab adalah fondasi utama untuk bisa dipercaya.</p>
+    <p>Kesuksesan tidak datang secara instan — semua butuh proses, waktu, dan usaha yang konsisten. Saya percaya setiap kesalahan adalah bagian dari proses belajar untuk menjadi lebih baik.</p>
+    <p>Prinsip saya: <i>“Belajar, beradaptasi, dan berkembang.”</i> Karena di dunia teknologi yang terus berubah, kita harus mau belajar hal baru setiap hari agar tidak tertinggal.</p>
     <button class="backMenu">Kembali</button>
   </section>
 
   <script>
-    const welcome = document.getElementById('welcome');
-    const beranda = document.getElementById('beranda');
-    const proyek = document.getElementById('proyek');
-    const lihat = document.getElementById('lihatProyekBtn');
-    const back = document.getElementById('backBtn');
-    const menuItems = document.querySelectorAll('.menu-item');
-    const details = document.querySelectorAll('.detail');
-    const backMenus = document.querySelectorAll('.backMenu');
+    const welcome=document.getElementById('welcome');
+    const beranda=document.getElementById('beranda');
+    const proyek=document.getElementById('proyek');
+    const lihat=document.getElementById('lihatProyekBtn');
+    const back=document.getElementById('backBtn');
+    const menuItems=document.querySelectorAll('.menu-item');
+    const details=document.querySelectorAll('.detail');
+    const backMenus=document.querySelectorAll('.backMenu');
 
-    welcome.addEventListener('animationend', () => {
-      welcome.style.display = 'none';
-      welcome.remove();
+    welcome.addEventListener('animationend',()=>{welcome.style.display='none';welcome.remove();});
+
+    let locked=false;
+    lihat.addEventListener('click',()=>{
+      if(locked)return;
+      locked=true;
+      beranda.style.opacity='0';
+      setTimeout(()=>{
+        beranda.style.display='none';
+        proyek.style.display='flex';
+        setTimeout(()=>proyek.classList.add('visible'),100);
+        locked=false;
+      },450);
     });
 
-    let locked = false;
-    lihat.addEventListener('click', () => {
-      if (locked) return;
-      locked = true;
-      beranda.style.opacity = '0';
-      setTimeout(() => {
-        beranda.style.display = 'none';
-        proyek.style.display = 'flex';
-        setTimeout(()=> proyek.classList.add('visible'),100);
-        locked = false;
-      }, 450);
-    });
-
-    back.addEventListener('click', () => {
+    back.addEventListener('click',()=>{
       proyek.classList.remove('visible');
-      setTimeout(() => {
-        proyek.style.display = 'none';
-        beranda.style.display = 'flex';
-        setTimeout(()=>beranda.style.opacity = '1', 80);
-      }, 300);
+      setTimeout(()=>{
+        proyek.style.display='none';
+        beranda.style.display='flex';
+        setTimeout(()=>beranda.style.opacity='1',80);
+      },300);
     });
 
     menuItems.forEach(item=>item.addEventListener('click',()=>openDetail(item.dataset.target)));
@@ -409,7 +390,7 @@
         proyek.style.display='none';
         const target=document.getElementById(id);
         target.style.display='flex';
-        target.scrollTop = 0;
+        target.scrollTop=0;
         setTimeout(()=>target.classList.add('visible'),100);
       },300);
     }
@@ -426,20 +407,19 @@
       });
     });
 
-    const circuit = document.getElementById('circuit');
+    const circuit=document.getElementById('circuit');
     for(let i=0;i<20;i++){
-      const line = document.createElement('div');
+      const line=document.createElement('div');
       line.className='line';
-      line.style.top = Math.random()*100+'%';
-      line.style.animationDelay = (Math.random()*5)+'s';
-      line.style.opacity = 0.15+Math.random()*0.5;
+      line.style.top=Math.random()*100+'%';
+      line.style.animationDelay=(Math.random()*5)+'s';
+      line.style.opacity=0.15+Math.random()*0.5;
       circuit.appendChild(line);
     }
 
-    // Hilangkan kursor setelah animasi selesai
-    const typingText = beranda.querySelector('h2');
-    typingText.addEventListener('animationend', (e) => {
-      if (e.animationName === 'typing') {
+    const typingText=beranda.querySelector('h2');
+    typingText.addEventListener('animationend',(e)=>{
+      if(e.animationName==='typing'){
         typingText.classList.add('finished');
       }
     });
